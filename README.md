@@ -1,14 +1,19 @@
-<h1>Introduction
-</h1>
+# Table of contents
+1. [Introduction](#introduction)
+2. [Goals](#goals)
+3. [Operations available](#op_available)
+4. [Radix algorithm](#radix)
+5. [Visualizer](#visu)
+# Introduction <a name="introduction"></a>
 
 Push_swap is a project developped by myself in ecole 42. The project was developed in C and it was done in a few weeks. The project introduces sorting algorithms and the notion of complexity.
 
-# Goals
+# Goals <a name="goals"></a>
 The goal of the project was to create a sorting algorithm, that takes a list of integer as argument. The project also had to follows specific rules.
 - Only two stacks available to manipulate numbers, stack A and stack B
 - Only a couple of specified instructions were available
 
-# Operations available
+# Operations available <a name="op_available"></a>
 - **SA** : Swap the two tops int from A.
 - **SB** : Swap the two tops int from B.
 - **SS** : Do both **SA** and **SB**.
@@ -21,7 +26,7 @@ The goal of the project was to create a sorting algorithm, that takes a list of 
 - **RRB** : Inverted rotation of stack B, the last number becomes first.
 - **RRR** : Do both RRA and RRB.
 
-# Radix Algorithm
+# Radix Algorithm <a name="radix"></a>
 
 If the list given has 5 or less numbers, I hardcoded the solutions.
 
@@ -34,7 +39,8 @@ The algorithm follows this logic:
 4. Once the loop is over, push all elements from stack B back on top of stack A.
 5. Repeat process until the biggest bit is read.
 
-# Visualizer
+# Visualizer <a name="visu"></a>
+
 A visualizer is integrated in the repo in order to get a better idea of how the algo works.
 
 Run the command :
