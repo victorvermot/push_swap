@@ -17,8 +17,8 @@ The goal of the project was to create a sorting algorithm, that takes a list of 
 - **SA** : Swap the two tops int from A.
 - **SB** : Swap the two tops int from B.
 - **SS** : Do both **SA** and **SB**.
-- **PA** : Push a number from B to A.
-- **PB** : Push a number from A to B.
+- **PA** : Push the top number from B to A.
+- **PB** : Push the top number from A to B.
 - **RA** : Rotate stack A, the first number becomes last.
 - **RB** : Rotate stack B, the first number becomes last.
 - **RR** : Do both RA and RB.
@@ -33,7 +33,7 @@ If the list given has 5 or less numbers, I hardcoded the solutions.
 As for the rest, I chose to use a radix algorithm in order to sort my integers.
 
 The algorithm follows this logic:
-1. Simplify numbers so we don't have any negative : `[1, 0, -56]` becomes `[2, 1, 0]`.
+1. Simplify numbers so we don't have any negatives : `[1, 0, -56]` becomes `[2, 1, 0]`.
 2. Loop through my numbers and check each bits from right to left.
 3. If the bit is equal to 0, push the number on the stack B. Else, rotate A.
 4. Once the loop is over, push all elements from stack B back on top of stack A.
