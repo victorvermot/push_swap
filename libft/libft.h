@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvermot- <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: vvermot- <vvermot-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:55:07 by vvermot-          #+#    #+#             */
-/*   Updated: 2021/10/18 18:58:07 by vvermot-         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:01:57 by vvermot-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
@@ -20,7 +21,7 @@ void				ft_bzero(void *s, int n);
 char				*ft_strchr(const char *s, int c);
 void				*ft_memset(void *b, int c, size_t len);
 char				*ft_itoa(int n);
-int					ft_atoi(const char *str);
+long int			ft_atoi(const char *str);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);

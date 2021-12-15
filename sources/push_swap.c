@@ -6,7 +6,7 @@
 /*   By: vvermot- <vvermot-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 10:57:03 by vvermot-          #+#    #+#             */
-/*   Updated: 2021/12/10 15:27:52 by vvermot-         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:27:45 by vvermot-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,59 +59,38 @@ static void	create_array_from_string(char **argv, t_tab *tab)
 	tab->size = i;
 }
 
-void	solve_three(t_tabs *tabs)
+static void	ft_free(t_tabs *tab)
 {
-	if (tabs->tab_a->tab[0] > tabs->tab_a->tab[1]
-		&& tabs->tab_a->tab[0] > tabs->tab_a->tab[2])
-	{
-		rotate(tabs->tab_a, RA);
-		if (!check_order(tabs->tab_a))
-			swap(tabs->tab_a, SA);
-	}
-	else if (tabs->tab_a->tab[0] > tabs->tab_a->tab[1]
-		&& tabs->tab_a->tab[0] < tabs->tab_a->tab[2])
-		swap(tabs->tab_a, SA);
-	else if (tabs->tab_a->tab[0] < tabs->tab_a->tab[1]
-		&& tabs->tab_a->tab[0] < tabs->tab_a->tab[2])
-	{
-		tabs->tab_b->tab = push_b(tabs);
-		swap(tabs->tab_a, SA);
-		tabs->tab_a->tab = push_a(tabs);
-	}
-}
-
-void	preliminary_check(t_tabs *tabs)
-{
-	if (tabs->tab_a->size == 2 && !check_order(tabs->tab_a))
-		swap(tabs->tab_a, SA);
-	else if (tabs->tab_a->size == 3 && !check_order(tabs->tab_a))
-		solve_three(tabs);
+	free(tab->tab_a->tab);
+	free(tab->tab_b->tab);
+	free(tab->tab_a);
+	free(tab->tab_b);
 }
 
 int	main(int argc, char **argv)
 {
 	t_tabs	tabs;
+	int		*copy;
 	int		j;
 
+	copy = NULL;
 	tabs.tab_a = malloc(sizeof(t_tab));
 	tabs.tab_b = malloc(sizeof(t_tab));
+	if (!tabs.tab_a || !tabs.tab_b)
+		return (0);
 	j = 0;
 	tabs.tab_b->size = 0;
-	if (argc == 1)
+	if (argc-- == 1)
 		exit(0);
-	argc--;
 	if (argc == 1)
 		create_array_from_string(argv, tabs.tab_a);
 	else
 		create_array_from_ints(argc, argv, tabs.tab_a);
+	copy = get_ordered_array(&tabs, copy);
+	tabs.tab_a->tab = to_radix(&tabs, copy);
 	preliminary_check(&tabs);
-	ft_algo(&tabs);
-	while (j < tabs.tab_a->size)
-	{
-		printf("%d\n", tabs.tab_a->tab[j]);
-		j++;
-	}
-	free(tabs.tab_a->tab);
-	free(tabs.tab_b->tab);
+	if (!check_order(tabs.tab_a))
+		ft_algo(&tabs);
+	ft_free(&tabs);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vvermot- <vvermot-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:31:12 by vvermot-          #+#    #+#             */
-/*   Updated: 2021/12/10 15:42:06 by vvermot-         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:35:56 by vvermot-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static void	redefine_tab(t_tab *tab)
 	while (i < tab->size)
 	{
 		tab->tab[i] = tab->tab[i + 1];
-		//printf("%d\n", tab->tab[i]);
 		i++;
 	}
 }
@@ -63,10 +62,10 @@ int	*push_b(t_tabs *tabs)
 		while (i < tabs->tab_b->size)
 			new_tab[++i] = tabs->tab_b->tab[j++];
 	}
+	free(tabs->tab_b->tab);
 	tabs->tab_b->size += 1;
 	tabs->tab_a->size -= 1;
 	redefine_tab(tabs->tab_a);
-	free(tabs->tab_b->tab);
 	ft_putstr_fd("pb\n", 1);
 	return (new_tab);
 }

@@ -6,11 +6,43 @@
 /*   By: vvermot- <vvermot-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:40:39 by vvermot-          #+#    #+#             */
-/*   Updated: 2021/12/10 12:33:53 by vvermot-         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:35:39 by vvermot-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_min(t_tabs *tab)
+{
+	int	i;
+	int	temp;
+
+	i = 0;
+	temp = tab->tab_a->tab[i];
+	while (i < tab->tab_a->size)
+	{
+		if (temp > tab->tab_a->tab[i])
+			temp = tab->tab_a->tab[i];
+		i++;
+	}
+	return (temp);
+}
+
+int	get_max(t_tabs *tab)
+{
+	int	i;
+	int	temp;
+
+	i = 0;
+	temp = tab->tab_a->tab[i];
+	while (i < tab->tab_a->size)
+	{
+		if (temp < tab->tab_a->tab[i])
+			temp = tab->tab_a->tab[i];
+		i++;
+	}
+	return (temp);
+}
 
 void	ft_putstr_fd(char *s, int fd)
 {

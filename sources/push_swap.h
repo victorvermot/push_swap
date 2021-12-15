@@ -6,7 +6,7 @@
 /*   By: vvermot- <vvermot-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:06:29 by vvermot-          #+#    #+#             */
-/*   Updated: 2021/12/10 15:27:29 by vvermot-         ###   ########.fr       */
+/*   Updated: 2021/12/15 09:31:01 by vvermot-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 
 enum	e_operations{
 	SA = 1,
@@ -51,5 +51,10 @@ void	rotate(t_tab *tab, int opt);
 void	inv_rotate(t_tab *tab, int opt);
 int		check_order(t_tab *tab);
 void	ft_algo(t_tabs *tab);
+int		*get_ordered_array(t_tabs *tab, int *copy);
+int		*to_radix(t_tabs *tab, int *copy);
+void	preliminary_check(t_tabs *tabs);
+int		get_max(t_tabs *tab);
+int		get_min(t_tabs *tab);
 
 #endif

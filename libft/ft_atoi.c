@@ -6,15 +6,15 @@
 /*   By: vvermot- <vvermot-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 12:34:05 by vvermot-          #+#    #+#             */
-/*   Updated: 2021/11/10 11:06:09 by vvermot-         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:01:19 by vvermot-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	i;
-	int	result;
+	int			sign;
+	int			i;
+	long int	result;
 
 	result = 0;
 	i = 0;

@@ -6,22 +6,40 @@
 /*   By: vvermot- <vvermot-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 15:20:15 by vvermot-          #+#    #+#             */
-/*   Updated: 2021/12/10 16:33:26 by vvermot-         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:29:16 by vvermot-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	int	get_max_bits(t_tabs *tab)
+{
+	int	i;
+	int	size;
+	int	temp;
+	int	max_bits;
+
+	max_bits = 0;
+	i = 0;
+	size = tab->tab_a->size;
+	temp = get_max(tab);
+	while (temp >> max_bits != 0)
+		max_bits++;
+	return (max_bits);
+}
 
 void	ft_algo(t_tabs *tab)
 {
 	int	j;
 	int	i;
 	int	size;
+	int	max_bits;
 
 	i = 0;
 	j = 0;
 	size = tab->tab_a->size;
-	while (!check_order(tab->tab_a))
+	max_bits = get_max_bits(tab);
+	while (i < max_bits)
 	{
 		while (j < size)
 		{
@@ -29,15 +47,11 @@ void	ft_algo(t_tabs *tab)
 				rotate(tab->tab_a, RA);
 			else
 				tab->tab_b->tab = push_b(tab);
-			//printf("%d\n", (tab->tab_a->tab[0]));
 			j++;
 		}
-		j = 1;
+		j = 0;
 		i++;
 		while (tab->tab_b->size)
-		{
 			tab->tab_a->tab = push_a(tab);
-			printf("%d\n", tab->tab_b->size);
-		}
 	}
 }
