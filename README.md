@@ -12,8 +12,8 @@ The goal of the project was to create a sorting algorithm, that takes a list of 
 - **SA** : Swap the two tops int from A.
 - **SB** : Swap the two tops int from B.
 - **SS** : Do both **SA** and **SB**.
-- **PA** : Push a number from B to A.
-- **PB** : Push a number from A to B.
+- **PA** : Push the top number from B to A.
+- **PB** : Push the top number from A to B.
 - **RA** : Rotate stack A, the first number becomes last.
 - **RB** : Rotate stack B, the first number becomes last.
 - **RR** : Do both RA and RB.
