@@ -28,7 +28,7 @@ If the list given has 5 or less numbers, I hardcoded the solutions.
 As for the rest, I chose to use a radix algorithm in order to sort my integers.
 
 The algorithm follows this logic:
-1. Simplify numbers so we don't have any negative : `[1, 0, -56]` becomes `[2, 1, 0]`.
+1. Simplify numbers so we don't have any negatives : `[1, 0, -56]` becomes `[2, 1, 0]`.
 2. Loop through my numbers and check each bits from right to left.
 3. If the bit is equal to 0, push the number on the stack B. Else, rotate A.
 4. Once the loop is over, push all elements from stack B back on top of stack A.
